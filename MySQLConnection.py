@@ -45,6 +45,8 @@ def load_data():
                 print('Elapsed_time: ', elapsed_time)
 
         MySQL_db.close() #close the connection
+        return 0
     except Exception as e:
         MySQL_db.close()
         print(str(e))
+        return 1
