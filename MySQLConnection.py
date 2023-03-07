@@ -4,6 +4,7 @@ import SQLConnection
 from SQL_Parameters import *
 import warnings
 import time
+from mysql.connector.locales.eng import client_error
 
 
 warnings.filterwarnings('ignore')
@@ -11,7 +12,7 @@ warnings.filterwarnings('ignore')
 def load_data():
     try:
         # MySQL Connector
-        MySQL_db = connection.connect(host=MySQL['host'], database=MySQL['database'], user=MySQL['user'], passwd=MySQL['password'], use_pure=MySQL['use_pure'])
+        MySQL_db = connection.connect(host=MySQL['host'], database=MySQL['database'], user=MySQL['user'], passwd=MySQL['password'], auth_plugin=MySQL['auth_plugin']) # use_pure=MySQL['use_pure']
             
         # MySQL Tables
         query_tables = f"SELECT table_name FROM information_schema.tables WHERE table_type='BASE TABLE' AND table_schema = '{MySQL['database']}'"
