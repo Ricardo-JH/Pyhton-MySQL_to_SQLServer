@@ -41,6 +41,7 @@ def load_data():
                 except Exception as e:
                     print(f'Exception has occurred on table {SQLServer_table}')
                     print(e)
+                    return 1
                 
                 elapsed_time = time.time() - start_time
                 print('Elapsed_time: ', elapsed_time)
